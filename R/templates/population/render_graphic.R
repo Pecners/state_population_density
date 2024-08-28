@@ -25,14 +25,14 @@ st <- s |>
 
 wkt_st <- st_as_text(st[[1,"geometry"]])
 
-data <- st_read("data/kontur/kontur_population_US_20220630.gpkg",
+st_d <- st_read("data/kontur/kontur_population_US_20220630.gpkg",
                 wkt_filter = wkt_st)
 
-data |> 
-  ggplot() +
-  geom_sf()
+# data |> 
+#   ggplot() +
+#   geom_sf()
 
-st_d <- st_join(data, st, left = FALSE)
+# st_d <- st_join(data, st, left = FALSE)
 
 st_d |> 
   ggplot() +
