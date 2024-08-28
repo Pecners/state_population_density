@@ -1,0 +1,29 @@
+project:
+  type: book
+
+book:
+  title: "Population Densities"
+  author: "Spencer Schien"
+  date: "8/25/2024"
+  chapters:
+    - index.qmd
+    - part: "States"
+      chapters: 
+        - alabama.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: 
+     - lux
+     - custom.scss
+    mainfont: "Libre Baskerville"
+    monofont: "Roboto"
+    linestretch: 1.75
+    toc: true
+  pdf:
+    documentclass: scrreprt
+
+
+

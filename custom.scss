@@ -1,0 +1,35 @@
+/*-- scss:defaults --*/
+
+// Fonts
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+$font-size-root:              11pt;
+
+$h1-font-size:                2.5rem !default;
+$h2-font-size:                2.25rem !default;
+$h3-font-size:                2rem !default;
+$h4-font-size:                1.75rem !default;
+$h5-font-size:                1.5rem !default;
+$h6-font-size:                1.25rem !default;
+$headings-font-weight:        700 !default;
+
+/*-- scss:rules --*/
+
+
+// Typography
+
+h1 {
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "DM Serif Display";
+  text-transform: capitalize;
+}

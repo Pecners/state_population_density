@@ -1,0 +1,12 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Population Densities",
+    "section": "",
+    "text": "Preface\nIn 2022, I participated in the #30DayMapChallenge. One of the maps I made was a population density map of Wisconsin, inspired by the aerialod maps I had seen others make.\n\n\n\n\n\n\n \n\n\n\n\n\nMy 2022 #30DayMapChallenge submission for Day 21 - Kontur Population.\n\n\n\n\n \n\n\n\nI thought (and still think) this style of map was pretty cool, and the data nerds on the internet seemed to like it, too. So, I kept making maps. For over two years. And I’m still going.\nThis has been a creative pursuit for me, and I have played it fast and loose with cartographic principles. My interest has been in trying new things and creating striking maps.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAs my portfolio has grown, a difficulty I’ve encountered is presenting the work in a bundled and cohesive format. I typically shared new maps on my socials, and I would occassionally add them to the gallery on my website (if I remembered). Eventually I created a GitHub repository, but that was really geared towards a technical audience. I wanted a more approachable presentation.\nMy solution is the book. The primary purpose of this book will be to present population density maps of the 50 US states. There will be one chapter per state, and the chapters will be concise. The writing style will not be technical, though I may provide additional technical information in the notes.\nWith that, I will consider this book prefaced.",
+    "crumbs": [
+      "Preface"
+    ]
+  }
+]
