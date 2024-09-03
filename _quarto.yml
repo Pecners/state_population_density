@@ -6,6 +6,7 @@ book:
   title: "Population Densities"
   author: "Spencer Schien"
   date: "8/25/2024"
+  google-analytics: "G-EEV3VPGR3H"
   chapters:
     - index.qmd
     - part: "States"
