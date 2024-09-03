@@ -3,3 +3,4 @@ data/kontur*
 images/*
 /.quarto/
 *.ai
+/_book/
