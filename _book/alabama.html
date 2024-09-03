@@ -40,6 +40,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -133,8 +136,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#geography" id="toc-geography" class="nav-link active" data-scroll-target="#geography">Geography</a></li>
+  <li><a href="#urban-areas" id="toc-urban-areas" class="nav-link" data-scroll-target="#urban-areas">Urban Areas</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -158,8 +168,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><a href="assets/alabama/alabama_titled@0.5x.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="assets/alabama/alabama_titled@0.5x.png" class="img-fluid"></a></p>
+<section id="geography" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="geography">Geography</h2>
+<p><img src="assets/alabama/state_location.svg" class="figure-right img-fluid" style="width:50.0%"></p>
+<p>Alabama, the Heart of Dixie. Located in the southeastern United States, Alabama’s geography includes both the southern end of the Appalachian Mountains and a small bit of coastline along the Gulf of Mexico.</p>
+<p>Both of these geographical features are apparent in the population density map of the state. Population patterns in the northeast of the state show striations that coincide with mountain ridges, and to the south, the Gulf Shores area and Mobile Bay are clearly visible.</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/alabama/mobile_closeup@0.5x.png" class="lightbox" data-gallery="closeup" title="Gulf Shores &amp; Mobile Bay"><img src="assets/alabama/mobile_closeup@0.5x.png" class="img-fluid figure-img" alt="Gulf Shores &amp; Mobile Bay"></a></p>
+<figcaption>Gulf Shores &amp; Mobile Bay</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/alabama/ne_closeup@0.5x.png" class="lightbox" data-gallery="closeup" title="Appalachian Mountains"><img src="assets/alabama/ne_closeup@0.5x.png" class="img-fluid figure-img" alt="Appalachian Mountains"></a></p>
+<figcaption>Appalachian Mountains</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="urban-areas" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="urban-areas">Urban Areas</h2>
+<p><a href="assets/alabama/urban_areas@0.25x.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="assets/alabama/urban_areas@0.25x.png" class="figure-right img-fluid" style="width:50.0%"></a></p>
+<p>Alabama’s capital is evident as the most populated area of the state…JK! Birmingham jumps out as the most populous urban area (and smack dab in the middle of the state, at that), but the capital, Montgomery, registers as less than a college town.</p>
+<p>Interestingly, the northeast region of the state, characterized by the southern tail of the Appalachian Mountains, shows broader general population than the southwest (aside from Mobile area). This southwest region largely coincides with the East Gulf Coastal Plain geological section of Alabama, which includes the Black Belt–an area of dark-soiled land developed as plantations in the 19th century.</p>
+<p>Put another way: more farmland in the south-southwest, more population in the north-northeast.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="assets/alabama/physio_map.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Source: Geological Survey of Alabama"><img src="assets/alabama/physio_map.jpg" class="img-fluid figure-img" alt="Source: Geological Survey of Alabama"></a></p>
+<figcaption>Source: <a href="https://www.gsa.state.al.us/gsa/geologic/algeology/algphysiographic">Geological Survey of Alabama</a></figcaption>
+</figure>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -592,6 +645,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

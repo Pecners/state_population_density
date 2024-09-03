@@ -7,6 +7,7 @@ library(colorspace)
 library(tigris)
 library(stars)
 library(MetBrewer)
+library(NatParksPalettes)
 
 # Set map name that will be used in file names, and 
 # to get get boundaries from master NPS list
@@ -14,7 +15,8 @@ library(MetBrewer)
 map <- "alabama"
 
 # Kontur data source: https://data.humdata.org/organization/kontur
-d_layers <- st_layers("data/kontur/kontur_population_US_20220630.gpkg")
+kf <- "data/kontur_population_US_20231101.gpkg"
+d_layers <- st_layers(kf)
 d_crs <- d_layers[["crs"]][[1]][[2]]
 
 s <- states() |> 
@@ -25,14 +27,13 @@ st <- s |>
 
 wkt_st <- st_as_text(st[[1,"geometry"]])
 
-data <- st_read("data/kontur/kontur_population_US_20220630.gpkg",
-                wkt_filter = wkt_st)
+st_d <- st_read(kf, wkt_filter = wkt_st)
 
-data |> 
-  ggplot() +
-  geom_sf()
+# st_d |> 
+#   ggplot() +
+#   geom_sf()
 
-st_d <- st_join(data, st, left = FALSE)
+# st_d <- st_join(data, st, left = FALSE)
 
 st_d |> 
   ggplot() +
@@ -59,16 +60,17 @@ rast <- st_rasterize(st_d |>
                        select(population, geom),
                      nx = floor(size * x_rat), ny = floor(size * y_rat))
 
+object.size(rast) / 1e-6
 
 mat <- matrix(rast$population, nrow = floor(size * x_rat), ncol = floor(size * y_rat))
 
 # set up color palette
 
-pal <- "green_gold"
+pal <- "olympic"
 
-c1 <- PrettyCols::prettycols("Greens")
-c2 <- PrettyCols::prettycols("Tangerines")
-colors <- scico::scico(n = 10, palette = "bamako")
+
+c1 <- natparks.pals("Olympic", n = 10)
+colors <- c1[c(5:1, 10:6)]
 swatchplot(colors)
 
 texture <- grDevices::colorRampPalette(colors, bias = 4)(256)
@@ -94,7 +96,7 @@ mat |>
           soliddepth = 0,
           # You might need to hone this in depending on the data resolution;
           # lower values exaggerate the height
-          z = 15,
+          z = 50 / (size / 1000),
           # Set the location of the shadow, i.e. where the floor is.
           # This is on the same scale as your data, so call `zelev` to see the
           # min/max, and set it however far below min as you like.
@@ -113,7 +115,7 @@ mat |>
           background = "white") 
 
 # Use this to adjust the view after building the window object
-render_camera(phi = 35, zoom = .85, theta = 20)
+render_camera(phi = 45, zoom = .85, theta = -10)
 
 ###############################
 # Create High Quality Graphic #
@@ -162,19 +164,20 @@ saveRDS(list(
     preview = FALSE,
     light = TRUE,
     lightdirection = rev(c(140, 140, 150, 150)),
-    lightcolor = c(colors[1], "white", colors[10], "white"),
-    lightintensity = c(750, 50, 1000, 50),
+    lightcolor = c(colors[3], "white", colors[7], "white"),
+    lightintensity = c(750, 100, 1000, 100),
     lightaltitude = c(10, 80, 10, 80),
     # All it takes is accidentally interacting with a render that takes
     # hours in total to decide you NEVER want it interactive
     interactive = FALSE,
     # HDR lighting used to light the scene
     # environment_light = "assets/env/phalzer_forest_01_4k.hdr",
-    # # environment_light = "assets/env/small_rural_road_4k.hdr",
-    # # Adjust this value to brighten or darken lighting
-    # intensity_env = 1.5,
+    # environment_light = "assets/env/phalzer_forest_01_4k.hdr",
+    # environment_light = "assets/env/small_rural_road_4k.hdr",
+    # Adjust this value to brighten or darken lighting
+    # intensity_env = 1, 
     # # Rotate the light -- positive values move it counter-clockwise
-    # rotate_env = 130,
+    # rotate_env = -225,
     # This effectively sets the resolution of the final graphic,
     # because you increase the number of pixels here.
     # width = round(6000 * wr), height = round(6000 * hr),
