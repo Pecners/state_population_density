@@ -12,6 +12,7 @@ book:
     - part: "States"
       chapters: 
         - alabama.qmd
+        - alaska.qmd
 
 bibliography: references.bib
 

@@ -19,3 +19,6 @@ s |>
 
 ggsave("assets/alabama/state_location.svg", bg = "transparent",
          width = 10, height = 6)
+
+ggsave("assets/alabama/state_location.png", bg = "white",
+         width = 10, height = 6)
