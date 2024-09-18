@@ -2,3 +2,87 @@
 
 ![](assets/alaska/alaska_titled@0.25x.png){.lightbox}
 
+## Urban Areas {.unnumbered}
+
+Alaska, the Last Frontier. That's a heck of a population density map, isn't it? More like lack-of-population-density map, amiright?
+
+![](assets/alaska/ak_location.svg){.figure-right width=50%}
+
+There are just a handful of population centers that are identifiable. In the central part of the state, we find the two most populous cities: Anchorage and Fairbanks. Neither of those cities is the capital, though -- that honor is held by Juneau, situated in the southeast. Outside of those cities, there is an extremely sparese dotting of population across the state.
+
+Perhaps more notable is the vast amount of blank canvas on this map, though it may not be all that surprising given how far north Alaska is situated.
+
+![](assets/alaska/ak_urban_areas@0.25x.png){.lightbox}
+
+## National Parks {.unnumbered}
+
+What Alaska lacks in population, it makes up for in National Park land. In fact, about 14% of land in Alaska is managed by the National Park Service. That includes National Parks, Preserves, and Monuments.
+
+:::{layout-ncol=2}
+![](assets/alaska/np_bounds.png){.lightbox group="closeup" width=100%}
+
+![](assets/alaska/treemap.png){.lightbox group="closeup"}
+:::
+
+Now, 14% might sound like a lot of a state's land to be managed by the National Park Service, but considering the size of Alaska, it's a massive area of land. In fact, Alaska boasts more National Park land than the rest of the United States combined.
+
+To put this in perspective, the gif below transforms Alaska from its more northern latitudes (which appear larger on maps than latitudes closer to the equator) to those comparable with the contiguous United States. From this perspective, Alaska can cover a large portion of the Midwest.
+
+![](assets/alaska/ak_shift.gif)
+
+In fact, the land area of Alaska is about equal to that of the twelve highlighted states below.
+
+```{r}
+#| echo: false
+#| message: false
+library(tidyverse)
+library(sf)
+library(ggiraph)
+library(tigris)
+
+s <- read_rds("data/states.rds")
+
+
+these_states <- c(
+  "Wisconsin",
+  "Illinois",
+  "Michigan",
+  "Indiana",
+  # "Minnesota",
+  # "Iowa",
+  "Missouri",
+  "Kentucky",
+  "Tennessee",
+  "Mississippi",
+  "Alabama",
+  "Georgia",
+  "Ohio",
+  "West Virginia"
+  # "North Dakota",
+  # "South Dakota",
+  # "Kansas",
+  # "Nebraska",
+  # "Oklahoma"
+)
+
+this_gg <- s |> 
+  ggplot(aes(fill = ifelse(NAME %in% these_states, TRUE, FALSE))) +
+    geom_sf_interactive(color = "white", aes(tooltip = NAME, data_id = NAME)) +
+    scale_fill_manual(values = c("#0f204b", "#ffb612")) +
+    coord_sf(crs = 2163) +
+    theme_void() +
+    theme(legend.position = "none")
+
+girafe(ggobj = this_gg, 
+       options = list(opts_hover(css = "fill-opacity:.25;stroke:black;stroke-width:0pt;"),
+                      opts_tooltip(delay_mouseover = 0),
+                      opts_toolbar(saveaspng = FALSE)))
+```
+
+## Inspiration{.unnumbered}
+
+![](assets/alaska/Flag_of_Alaska.png){.figure-right width=35%}
+
+My inspiration for this map was a combination of ice and stars. Alaska is so sparsely populated that I wanted to add a subtle effect to draw attention to the few population centers. I achieved this effect by changing the texture of the ground so that it reflected the light in a way that mimiced a sheet of ice.
+
+As for stars, the sparse spattering of population across the state reminded me of stars in the night's sky, especially once I landed on the color scheme that matched Alaska's flag.

@@ -4,3 +4,5 @@ images/*
 /.quarto/
 *.ai
 /_book/
+*.key
+.RData
