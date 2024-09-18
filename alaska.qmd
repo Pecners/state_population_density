@@ -78,7 +78,7 @@ this_gg <- s |>
 
 girafe(ggobj = this_gg, 
        options = list(opts_hover(css = "fill-opacity:.25;stroke:black;stroke-width:0pt;"),
-                      opts_tooltip(delay_mouseover = 0),
+                      opts_tooltip(delay_mouseover = 0, delay_mouseout = 0),
                       opts_toolbar(saveaspng = FALSE)))
 ```
 
