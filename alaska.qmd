@@ -31,7 +31,7 @@ Now, 14% might sound like a lot of a state's land to be managed by the National 
 
 To put this in perspective, the gif below transforms Alaska from its more northern latitudes (which appear larger on maps than latitudes closer to the equator) to those comparable with the contiguous United States. From this perspective, Alaska can cover a large portion of the Midwest.
 
-![](assets/alaska/ak_shift_gs.gif)
+![](assets/alaska/ak_shifted.svg){width=100%}
 
 In fact, the land area of Alaska is about equal to that of the twelve highlighted states below.
 
@@ -77,7 +77,7 @@ this_gg <- s |>
     theme(legend.position = "none")
 
 girafe(ggobj = this_gg, 
-       options = list(opts_hover(css = "fill-opacity:.25;stroke:black;stroke-width:0pt;"),
+       options = list(opts_hover(css = "fill-opacity:.25;stroke:black;stroke-width:0pt;"), 
                       opts_tooltip(delay_mouseover = 0, delay_mouseout = 0),
                       opts_toolbar(saveaspng = FALSE)))
 ```

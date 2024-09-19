@@ -193,4 +193,6 @@ ff <- paste(tmp_dir, f, sep = "/")
 
 # av_encode_video(ff, "assets/alaska/ak_shift.gif")
 
-gifski(ff, "assets/alaska/ak_shift_gs.gif", delay = .035)
+gifski(ff, "assets/alaska/ak_shift_gs.gif", delay = .035, 
+       width = 4800/6, height = 2700/6)
+
