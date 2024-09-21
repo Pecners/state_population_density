@@ -14,7 +14,7 @@ library(MetBrewer)
 map <- "CONFIG_MAP"
 
 # Kontur data source: https://data.humdata.org/organization/kontur
-d_layers <- st_layers("data/kontur/kontur_population_US_20220630.gpkg")
+d_layers <- st_layers("data/kontur_population_US_20231101.gpkg")
 d_crs <- d_layers[["crs"]][[1]][[2]]
 
 s <- states() |> 
