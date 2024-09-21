@@ -25,7 +25,7 @@ st <- s |>
 
 wkt_st <- st_as_text(st[[1,"geometry"]])
 
-st_d <- st_read("data/kontur/kontur_population_US_20220630.gpkg",
+st_d <- st_read("data/kontur_population_US_20231101.gpkg",
                 wkt_filter = wkt_st)
 
 # data |> 
